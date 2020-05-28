@@ -4,9 +4,13 @@ namespace ToDoList.Models
 {
   public class Category
   {
-    private static List<Category> _instances = new List<Category> {};
+    public Category()
+    {
+      this.Items = new HashSet<Item>();
+    }
+
+    public int CategoryId { get; set; }
     public string Name { get; set; }
-    public int Id { get; }
-    public List<Item> Items { get; set; }
+    public virtual ICollection<Item> Items { get; set; }
   }
 }
